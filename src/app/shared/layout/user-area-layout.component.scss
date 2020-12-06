@@ -1,0 +1,63 @@
+@import "../../../assets/template/sass/color";
+
+.main-container {
+  width: 100%;
+}
+
+.sidenav-container {
+  // width: 20%;
+  // position: absolute;
+  // height: 100%;
+  background-color: #5f6f7f;
+
+  // .mat-drawer-content {
+  //   overflow-x: hidden;
+  // }
+
+  // mat-sidenav-content {
+  //   padding: 12px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  // }
+}
+
+.page-container {
+  height: 100%;
+  overflow-y: scroll;
+  // width: 76%;
+  // margin: 20px 290px 0 24px;
+
+  // background-color: $color-white;
+  height:calc(100vh - 64px);
+  .page-content{
+      padding: 15px;
+  }
+}
+
+// .sideBar-hide {
+//   width: 4%;
+// }
+
+// .change-size-content {
+//   margin-right: 70px;
+// }
+
+
+// @media (min-width:320px) and (max-width: 768px) {
+//   // .page-container {
+//   //   width: 100%
+//   // }
+
+//   // header {
+//   //   width: 100%;
+//   // }
+//   .page-container{
+//     margin: 10px;
+//     width: calc(100% - 20px);
+//   }
+//   .mdq {
+//       width: 0;
+//       // display: none;
+//     }
+// }

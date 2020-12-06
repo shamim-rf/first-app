@@ -1,0 +1,11 @@
+<mat-nav-list class="mat-nav-list">
+    <mat-list-item class="mat-list-item hvr-underline-from-right" *ngFor="let item of menuService.getMenuitem()"
+        [ngClass]="item?.active ? 'activeItem' : ''" (click)="clickItem(item)">
+        <a class="mat-link" [routerLink]="[item.path]">
+            <mat-icon class="mat-icon {{ smallIconClass }}" [ngClass]="item?.active ? 'activeIcon' : ''">{{ item.icon }}
+            </mat-icon>
+            <span class="mat-text" [hidden]="!showSideBar"
+                [ngClass]="item?.active ? 'activeText' : ''">{{ item.titleKey }}</span>
+        </a>
+    </mat-list-item>
+</mat-nav-list>

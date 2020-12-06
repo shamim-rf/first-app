@@ -1,0 +1,20 @@
+<div class="main-container">
+  <header>
+    <app-header></app-header>
+  </header>
+  <div fxLayout="row" fxLayoutAlign="space-between stretch">
+    <mat-sidenav-container class="sidenav-container {{showSidebarClass}}" [fxFlex.gt-lg]="flexSizeSide.lg"
+      [fxFlex.gt-md]="flexSizeSide.md" [fxFlex.gt-sm]="flexSizeSide.sm" [fxFlex.gt-xs]="flexSizeSide.xs" fxFlex="100">
+      <app-user-area-sidebar></app-user-area-sidebar>
+    </mat-sidenav-container>
+    <div class="page-container {{configSizeContent}}" [fxFlex.gt-lg]="flexSizeContent.lg"
+      [fxFlex.gt-md]="flexSizeContent.md" [fxFlex.gt-sm]="flexSizeContent.sm" [fxFlex.gt-xs]="flexSizeContent.xs"
+      fxFlex="100">
+      <div class="page-content">
+        <h3 class="panelTitle">{{pageTitle}}</h3>
+        <hr>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

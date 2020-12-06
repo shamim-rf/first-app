@@ -1,0 +1,44 @@
+table {
+  width: 95%;
+  margin: 0 auto;
+
+  /* height: 50%; */
+  th.mat-header-cell {
+    text-align: right;
+  }
+
+  .mat-header-cell {
+    font-size: 14px
+  }
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.highlight {
+  background: whitesmoke;
+}
+
+
+/* #addRowDv{
+    margin-left: 1000px;
+  } */
+
+/* mat-form-field {
+    width: 80px;
+  } */
+
+@media (min-width:320px) and (max-width:768px) {
+  table {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  mat-paginator {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+
+}

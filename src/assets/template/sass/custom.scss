@@ -1,0 +1,76 @@
+/*general*/
+.panelTitle {
+  font-size: 1.1rem;
+  color: $color-sidebar-text;
+}
+/*dataTable ngx*/
+.datatable-body-cell-label {
+  text-align: right !important;
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+  text-align: right !important;
+}
+/*toggle-btn mat*/
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: $color-green-dark !important;
+}
+
+.mat-slide-toggle-bar {
+  background-color: $color-red !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $color-white-gray !important;
+}
+
+/* mat-input */
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $theme-accent !important;
+}
+
+.material-icons {
+  font-size: 1.45rem !important;
+}
+
+.mat-mini-fab {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+.mat-mini-fab.mat-accent {
+  background-color: #d2dade !important;
+}
+
+/*mat-dialog*/
+.mat-dialog-container {
+  background-color: $bodycolor !important;
+  color: $color-sidebar-text !important;
+}
+/*mat-form-field*/
+.mat-form-field {
+  text-align: right !important;
+}
+.mat-form-field-label {
+  color: $color-sidebar-text !important;
+}
+
+// .mat-form-field-ripple {
+//   color: $color-sidebar-text !important;
+// }
+
+.mat-form-field-appearance-standard .mat-form-field-underline {
+  background-color: $color-sidebar-text !important;
+}
+
+.mat-dialog-container {
+  width: 30vw !important;
+}
+
+// .editIcon{
+//   background-color: $color-green-dark!important;
+// }
+
+// .deleteIcon{
+//   background-color: $color-red!important;
+// }

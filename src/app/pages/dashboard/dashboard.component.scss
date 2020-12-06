@@ -1,0 +1,22 @@
+@import "../../../assets/template/sass/color";
+.card-container{
+  //  background-color: $color-white;
+
+  mat-card{
+    background-color: $color-light-pink;
+    mat-card-header{
+       justify-content: center;
+      mat-card-title{
+       color: $color-sidebar-text;
+      }
+    }
+    mat-card-content{
+      color: $color-sidebar-text;
+
+    }
+  }
+
+}
+
+
+

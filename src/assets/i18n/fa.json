@@ -1,0 +1,37 @@
+{
+  "total": "تعداد :",
+  "general": {
+    "test": "وحید{{key}}",
+    "active": "قعال",
+    "inactive": "غیرفعال",
+    "operation": "عملیات",
+    "delete": "حذف",
+    "add": "درج",
+    "Yes": "بلی",
+    "No": "خیر",
+    "conf-message": "آیا از انجام عملیات اطمینان دارید؟"
+  },
+
+  "dashboard": {
+    "dashboardMng": "مدیریت داشبورد"
+  },
+
+  "user": {
+   "addUser": "درج کاربر",
+   "userMng": "مدیریت کاربران",
+   "firstName": "نام",
+   "lastName": "نام خانوادگی",
+   "employeeDate": "تاریخ استخدام"
+  },
+
+
+  "validation": {
+    "product": {},
+    "users": {
+      "test": "شمیم"
+    }
+  },
+  "labels": {},
+  "succesMessages": {},
+  "confirmationMessage": {}
+}

@@ -1,0 +1,77 @@
+<button mat-mini-fab class="addBtn" [matTooltip]="'general.add' | translate" (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+<ngx-datatable #mydatatable class="material" [headerHeight]="50" [limit]="5" [columnMode]="ColumnMode.force"
+               [footerHeight]="50" rowHeight="auto" [rows]="gridData"
+               [messages]='{totalMessage:("total" | translate)}'>
+  <ngx-datatable-column [name]="columnName[0]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+      {{ rowIndex + 1 }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [name]="columnName[1]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+      <span>
+        {{ row.id }}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [name]="columnName[2]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+      <span (click)="editing[rowIndex + '-firstName'] = true" *ngIf="!editing[rowIndex + '-firstName']">
+        {{ row.firstName }}</span>
+      <mat-form-field *ngIf="editing[rowIndex + '-firstName']">
+        <input matInput autofocus (blur)="updateValue($event, 'firstName', rowIndex)" type="text"
+               [value]="row.firstName" />
+      </mat-form-field>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [name]="columnName[3]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+      <span (click)="editing[rowIndex + '-lastName'] = true"
+            *ngIf="!editing[rowIndex + '-lastName']">{{ row.lastName }}</span>
+
+      <mat-form-field *ngIf="editing[rowIndex + '-lastName']">
+        <input matInput autofocus (blur)="updateValue($event, 'lastName', rowIndex)" type="text"
+               [value]="row.lastName" />
+      </mat-form-field>
+    </ng-template>
+  </ngx-datatable-column>
+  <!-- <ngx-datatable-column [name]="columnName[4]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+      <span (click)="editing[rowIndex + '-employeeDate'] = true"
+            *ngIf="!editing[rowIndex + '-employeeDate']">{{ row.employeeDate }}</span>
+
+      <mat-form-field *ngIf="editing[rowIndex + '-employeeDate']">
+        <input matInput [matDatepicker]="dp">
+        <mat-date-picker #dp matInput autofocus (blur)="updateValue($event, 'employeeDate', rowIndex)" type="text"
+               [value]="row.empleeDate"></mat-date-picker>
+      </mat-form-field>
+    </ng-template>
+  </ngx-datatable-column> -->
+  <ngx-datatable-column [name]="columnName[5]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+      <mat-slide-toggle [matTooltip]="row.status ? ('general.active' | translate) : ('general.inactive' | translate)"
+                        [(checked)]="row.status"></mat-slide-toggle>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [name]="columnName[6]">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+      <span *ngIf="editing[rowIndex + '-firstName'] || editing[rowIndex + '-lastName']; else deleteMode">
+        <button mat-mini-fab style="margin-left: 10px;">
+          <mat-icon class="editIcon">save</mat-icon>
+        </button>
+        <button mat-mini-fab
+                (click)="editing[rowIndex + '-firstName'] = editing[rowIndex + '-lastName'] = false">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </span>
+      <ng-template #deleteMode>
+        <button mat-mini-fab [matTooltip]="'general.delete' | translate" class="deleteBtn"
+                (click)="deleteUser(row.id)">
+          <mat-icon class="deleteIcon" >delete</mat-icon>
+        </button>
+      </ng-template>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

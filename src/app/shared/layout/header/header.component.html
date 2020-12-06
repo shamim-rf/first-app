@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <div fxLayout="row">
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h6 class="mr-2">پنل مدیریت</h6>
+  </div>
+  <div class="userDetail">
+    <mat-icon title="پست ها" [matBadge]="letterNum" matBadgeColor="warn" class="notif"
+      (click)="toggleBadgeVisibility('letter')">local_post_office</mat-icon>
+    <mat-icon title="پیغام های جدید" [matBadge]="alertNum" matBadgeColor="warn" class="notif"
+      (click)="toggleBadgeVisibility('alert')">notifications_none</mat-icon>
+    <span [matMenuTriggerFor]="profile" class="profile-container">
+      <img class="userImg" src="assets/template/img/profile.svg" alt="user">
+    </span>
+    <mat-menu #profile>
+      <button mat-menu-item *ngFor="let item of userItems"><span>{{item.title}}</span>
+        <mat-icon>{{item.icon}}</mat-icon>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
