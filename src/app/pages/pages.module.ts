@@ -5,14 +5,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserComponent } from './user-mng/user.component';
-import { DialogComponent } from './dialog/dialog.component';
-import { EditableTableComponent } from './editable/editable-table.component';
 import { UserDetailComponent } from './user-mng/user-detail/user-detail.component';
 import { ProductMngComponent } from './product-mng/product-mng.component';
 import { UserService } from '../shared/services/user.service';
+import { RoleComponent } from './role-mng/role.component';
+import { ActivityComponent } from './activity-mng/activity.component';
 
 @NgModule({
-  declarations: [UserComponent, UserDetailComponent, EditableTableComponent, DialogComponent, ProductMngComponent],
+  declarations: [UserComponent, UserDetailComponent, ProductMngComponent, RoleComponent, ActivityComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -1,8 +1,11 @@
 import { UserService } from './../../../shared/services/user.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { DateAdapter } from '@angular/material/core';
+import * as moment from 'jalali-moment';
+import { ActivatedRoute } from '@angular/router';
+import { DatePickerComponent } from 'ng2-jalali-date-picker';
+import { GenderType, UserDto } from '../../../shared/types/dataTypes';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-user-detail',
@@ -10,15 +13,16 @@ import { DateAdapter } from '@angular/material/core';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
-  user = { id: 0, name: '', query: {} };
-  userSubscription: Subscription;
-  querySubscription: Subscription;
+  @ViewChild('datePicker') datePicker: DatePickerComponent;
+  userDto: UserDto = new UserDto();
+  config: any;
   openDialog = false;
-  constructor(private activeRoute: ActivatedRoute,
-              private userService: UserService,
-              private _adapter: DateAdapter<any>) {
-                this._adapter.setLocale('fa');
-              }
+  dateObj = moment('1395-11-22', 'jYYYY,jMM,jDD');
+  constructor(
+    private activeRoute: ActivatedRoute,
+    public dialogRef: MatDialogRef<UserDetailComponent>,
+    private userService: UserService) {
+  }
 
   ngOnInit(): void {
     // this.user.id = this.activeRoute.snapshot.params['id'];
@@ -36,16 +40,29 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     // this.userService.openSubject.subscribe((data: boolean) => {
     //   this.openDialog = data;
     // });
+    this.config = {
+      ...this.config,
+      maxDate: moment.from(moment(undefined).locale('fa').format('yyyy/mm/dd'), 'fa', 'yyyy/mm/dd'),
+      minDate: moment.from(moment(undefined).locale('fa').format('yyyy/mm/dd'), 'fa', 'yyyy/mm/dd')
+    };
   }
 
-  // persian(date) {
-  //   debugger
-  //   date
-  // }
+  openDatePicker() {
+    debugger
+    this.datePicker.api.open();
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  save() {
+    debugger
+
+    this.userService.add(this.userDto);
+    this.closeDialog();
+  }
 
   ngOnDestroy(): void {
-
-    // this.userSubscription.unsubscribe();
-    // this.querySubscription.unsubscribe();
   }
 }

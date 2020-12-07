@@ -6,9 +6,13 @@
     "inactive": "غیرفعال",
     "operation": "عملیات",
     "delete": "حذف",
+    "activation": "فعال سازی",
+    "inactivation": "غیر فعال سازی",
     "add": "درج",
     "Yes": "بلی",
     "No": "خیر",
+    "save": "ذخیره",
+    "cancel": "انصراف",
     "conf-message": "آیا از انجام عملیات اطمینان دارید؟"
   },
 
@@ -19,9 +23,12 @@
   "user": {
    "addUser": "درج کاربر",
    "userMng": "مدیریت کاربران",
-   "firstName": "نام",
-   "lastName": "نام خانوادگی",
-   "employeeDate": "تاریخ استخدام"
+   "firstName": ":نام",
+   "lastName": ":نام خانوادگی",
+   "employeeDate": ":تاریخ استخدام",
+   "gender": ":جنسیت",
+   "male": "مرد",
+   "female": "زن"
   },
 
 

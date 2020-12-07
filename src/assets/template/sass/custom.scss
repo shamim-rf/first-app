@@ -13,7 +13,7 @@
 }
 /*toggle-btn mat*/
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-  background-color: $color-green-dark !important;
+  background-color: $color-green !important;
 }
 
 .mat-slide-toggle-bar {
@@ -28,7 +28,7 @@
 .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: $theme-accent !important;
 }
-
+/*mat-icon*/
 .material-icons {
   font-size: 1.45rem !important;
 }
@@ -40,6 +40,12 @@
 
 .mat-mini-fab.mat-accent {
   background-color: #d2dade !important;
+}
+
+.mat-icon-button {
+  width: 10 !important;
+  height: 10 !important;
+  line-height: 0 !important;
 }
 
 /*mat-dialog*/
@@ -55,22 +61,34 @@
   color: $color-sidebar-text !important;
 }
 
-// .mat-form-field-ripple {
-//   color: $color-sidebar-text !important;
-// }
-
 .mat-form-field-appearance-standard .mat-form-field-underline {
   background-color: $color-sidebar-text !important;
 }
 
-.mat-dialog-container {
-  width: 30vw !important;
+/*ng2-date-picker*/
+dp-date-picker.dp-material .dp-picker-input {
+  border: 1px solid #607d8b !important;
+  border-radius: 4px;
 }
 
-// .editIcon{
-//   background-color: $color-green-dark!important;
-// }
+.mat-select-value {
+  color: $color-sidebar-text !important;
+}
 
-// .deleteIcon{
-//   background-color: $color-red!important;
-// }
+.dp-material dp-popup {
+  top: unset !important;
+  left: unset !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  background-color: $color-purple !important;
+}
+
+.mat-radio-outer-circle{
+  border-color: $color-sidebar-text !important;
+}
+
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab{
+  background-color: $color-blue-purple !important;
+  color: $color-purple !important;
+}

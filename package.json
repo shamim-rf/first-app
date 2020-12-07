@@ -31,6 +31,7 @@
     "jalali-moment": "^3.3.9",
     "material-icons": "^0.3.1",
     "ng-chartist": "^4.1.0",
+    "ng2-jalali-date-picker": "^2.4.2",
     "ngx-spinner": "^10.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

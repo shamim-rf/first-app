@@ -3,6 +3,7 @@ export class UserDto {
   firstName: string;
   lastName: string;
   employeeDate: string;
+  gender: string;
   picture: string;
   status: boolean;
 }
@@ -14,6 +15,11 @@ export class ProductDto {
   pictureUrl: string;
   percent: number;
 
+}
+
+export interface GenderType {
+  value: string;
+  viewValue: string;
 }
 
 

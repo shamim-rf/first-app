@@ -1,36 +1,43 @@
-<!-- <div>
-  <p>{{user.id}}----شناسه کاربری</p>
-  <p>{{user.name}}----نام کاربری</p>
-</div>
-<a [routerLink]="['/users', 4, 'angular']">بارگذاری اطلاعات کاربر angular</a> -->
-<mat-dialog-content fxLayout="column wrap" class="mat-typography">
-  <mat-form-field appearance="standard">
-    <mat-label>{{'user.firstName' | translate}}</mat-label>
-    <input matInput>
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint>Hint</mat-hint> -->
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>{{'user.lastName' | translate}}</mat-label>
-    <input matInput>
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint>Hint</mat-hint> -->
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-content fxLayout="column wrap">
-  <mat-form-field appearance="standard">
+<!-- <mat-card> -->
+<mat-card-content>
+  <form class="my-form" fxLayout="column wrap" fxLayoutAlign="start none">
+    <mat-form-field appearance="standard">
+      <mat-label>{{'user.firstName' | translate}}</mat-label>
+      <input name="firstName" matInput [(ngModel)]="userDto.firstName">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>{{'user.lastName' | translate}}</mat-label>
+      <input name="lastName" matInput [(ngModel)]="userDto.lastName">
+    </mat-form-field>
+    <br>
+    <mat-label class="example-margin">{{'user.gender' | translate}}</mat-label>
+    <section>
+      <mat-radio-group name="gender" [(ngModel)]="userDto.gender">
+        <mat-radio-button style="margin: 5px 10px;" value="Female">{{'user.female' | translate}}
+        </mat-radio-button>
+        <mat-radio-button style="margin: 5px 10px;" value="Male">{{'user.male' | translate}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+    <br>
     <mat-label>{{'user.employeeDate' | translate}}</mat-label>
-    <input matInput [matDatepicker]="dp">
-    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-    <mat-datepicker #dp></mat-datepicker>
-    <!-- <input matInput placeholder="Placeholder"> -->
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint>Hint</mat-hint> -->
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>{{'user.firstName' | translate}}</mat-label>
-    <input matInput placeholder="Placeholder">
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint>Hint</mat-hint> -->
-  </mat-form-field>
-</mat-dialog-content>
+    <div>
+      <button mat-icon-button (click)="openDatePicker()">
+        <mat-icon>today</mat-icon>
+      </button>
+      <dp-date-picker #datePicker name="date" dir="rtl" mode="day" [config]="config" theme="dp-material"
+                      [(ngModel)]="userDto.employeeDate">
+      </dp-date-picker>
+    </div>
+    <br>
+    <mat-card-actions>
+      <button mat-raised-button style="margin-right: 10px;" (click)="closeDialog()">{{'general.cancel' | translate}}
+        <mat-icon>cancel</mat-icon>
+      </button>
+      <button mat-raised-button (click)="save()">{{'general.save' | translate}}
+        <mat-icon>save</mat-icon>
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card-content>
+<!-- </mat-card> -->

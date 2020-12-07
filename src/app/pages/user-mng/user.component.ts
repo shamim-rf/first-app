@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -37,6 +38,10 @@ export class UserComponent implements OnInit {
     this.tr.instant('general.test')
   }
 
+  addDialog() {
+    this.dialog.open(UserDetailComponent, {data: {}});
+  }
+
   updateValue(event, cell, rowIndex) {
     this.editing[rowIndex + '-' + cell] = false;
     this.editMode = Object.keys(this.editing).length;
@@ -44,13 +49,33 @@ export class UserComponent implements OnInit {
     this.gridData = [...this.gridData];
   }
 
+  changeStatus(id: number, status: boolean) {
+    debugger
+    this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: status ? 'general.inactivation' : 'general.activation',
+        text: 'general.conf-message',
+        accept: () => {
+          // this.userService.changeStatus(id, status, this.gridData),
+        },
+        reject: () => {
+          // this.userService.changeStatus(id, !status, this.gridData)
+        }
+      }
+    });
+  }
+
+  s
+
   deleteUser(id) {
-        const dialogRef = this.dialog.open(ConfirmationComponent, {
-          data: {
-            title: 'general.operation',
-            text: 'general.conf-message',
-            accept: () => this.gridData = this.gridData.filter(item => item.id !== id),
-            // reject: () =>{}
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: 'general.delete',
+        text: 'general.conf-message',
+        accept: () => this.gridData = this.gridData.filter(item => item.id !== id),
+        reject: () => {
+          //  this.userService.delete(id , this.gridData
+        }
       }
     });
 
@@ -60,9 +85,6 @@ export class UserComponent implements OnInit {
     // })
   }
 
-  openDialog() {
-    this.dialog.open(UserDetailComponent);
-   }
 
 }
 

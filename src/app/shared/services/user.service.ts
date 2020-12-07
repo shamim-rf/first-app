@@ -9,39 +9,39 @@ export class UserService {
 
   dataMock: UserDto[] = [
     {
-      id: 1, firstName: 'شمیم', lastName: 'رئوف زاده', employeeDate: '1395/04/01',
+      id: 1, firstName: 'شمیم', lastName: 'رئوف زاده', employeeDate: '1395/04/01', gender: 'F',
       picture: '', status: true
     },
     {
-      id: 2, firstName: 'زهرا', lastName: 'لطفی', employeeDate: '1395/06/05',
+      id: 2, firstName: 'زهرا', lastName: 'لطفی', employeeDate: '1395/06/05', gender: 'F',
       picture: '', status: true
     },
     {
-      id: 3, firstName: 'حسام', lastName: 'ضیایی', employeeDate: '1398/06/05',
+      id: 3, firstName: 'حسام', lastName: 'ضیایی', employeeDate: '1398/06/05', gender: 'M',
       picture: '', status: true
     },
     {
-      id: 4, firstName: 'ملیکا', lastName: 'خدایاری', employeeDate: '1399/07/01',
+      id: 4, firstName: 'ملیکا', lastName: 'خدایاری', employeeDate: '1399/07/01', gender: 'F',
       picture: '', status: false
     },
     {
-      id: 5, firstName: 'احمد', lastName: 'شریفی', employeeDate: '1397/06/05',
+      id: 5, firstName: 'احمد', lastName: 'شریفی', employeeDate: '1397/06/05', gender: 'M',
       picture: '', status: true
     },
     {
-      id: 6, firstName: 'حسین', lastName: 'ملک زاده', employeeDate: '1398/01/01',
+      id: 6, firstName: 'حسین', lastName: 'ملک زاده', employeeDate: '1398/01/01', gender: 'M',
       picture: '', status: false
     },
     {
-      id: 7, firstName: 'پدرام', lastName: 'حسینی', employeeDate: '1398/06/05',
+      id: 7, firstName: 'پدرام', lastName: 'حسینی', employeeDate: '1398/06/05', gender: 'M',
       picture: '', status: true
     },
     {
-      id: 8, firstName: 'مریم', lastName: 'ملک زاده', employeeDate: '1399/03/01',
+      id: 8, firstName: 'مریم', lastName: 'ملک زاده', employeeDate: '1399/03/01', gender: 'F',
       picture: '', status: false
     },
     {
-      id: 9, firstName: 'حسین', lastName: 'شریفی', employeeDate: '1399/08/01',
+      id: 9, firstName: 'حسین', lastName: 'شریفی', employeeDate: '1399/08/01', gender: 'M',
       picture: '', status: true
     }
   ];
@@ -58,6 +58,7 @@ export class UserService {
   }
 
   add(newUser: UserDto): void {
+    debugger
     this.dataMock.push(newUser);
   }
 
@@ -66,8 +67,16 @@ export class UserService {
     findUser = user;
   }
 
-  // delete(id: number, dataMock) {
+  // changeStatus(id: number, status: boolean , dataMock): Observable<UserDto[]> {
+  //   debugger
+  //   const findUser = dataMock.find(item => { return item.id === id })
+  //   const obs = of(findUser);
+  //   return obs.pipe(map(item => item.status = !status));
+  // }
+
+  // delete(id: number, dataMock): Observable<UserDto[]> {
   //   const obs = from(dataMock);
-  //   return obs.pipe(filter(x => x.id !== id));
+  //   return obs.pipe(map(x => x.
+  //     filter(item => item.id !== id)));
   // }
 }

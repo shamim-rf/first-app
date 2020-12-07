@@ -1,5 +1,3 @@
-import { DialogData } from './../../pages/dialog/dialog.component';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventEmitter, Inject, Injectable, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IConfMessage } from '../types/generalTypes';

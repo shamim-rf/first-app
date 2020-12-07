@@ -6,6 +6,8 @@ import { MaterialModule } from './material/material.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ToggleBtnComponent } from './custom-feature/toggle-btn/toggle-btn.component';
 import { ConfirmationComponent } from './custom-feature/confirmation/confirmation.component';
+import { FormsModule } from '@angular/forms';
+import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 
 
 
@@ -16,7 +18,9 @@ import { ConfirmationComponent } from './custom-feature/confirmation/confirmatio
     MaterialModule,
     FlexLayoutModule,
     NgxDatatableModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    DpDatePickerModule
   ],
   exports:[
     ToggleBtnComponent,
@@ -24,7 +28,9 @@ import { ConfirmationComponent } from './custom-feature/confirmation/confirmatio
     MaterialModule,
     FlexLayoutModule,
     NgxDatatableModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    DpDatePickerModule
   ]
 })
 export class CoreModule { }
