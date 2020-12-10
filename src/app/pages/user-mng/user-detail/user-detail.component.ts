@@ -1,10 +1,8 @@
-import { UserService } from './../../../shared/services/user.service';
-import * as moment from 'jalali-moment';
-import { ActivatedRoute } from '@angular/router';
+import { UserDto } from '../../../shared/types/dataTypes';
 import { DatePickerComponent } from 'ng2-jalali-date-picker';
-import { GenderType, UserDto } from '../../../shared/types/dataTypes';
+import { UserService } from './../../../shared/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,13 +13,18 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class UserDetailComponent implements OnInit, OnDestroy {
   @ViewChild('datePicker') datePicker: DatePickerComponent;
   userDto: UserDto = new UserDto();
-  config: any;
   openDialog = false;
-  dateObj = moment('1395-11-22', 'jYYYY,jMM,jDD');
+  form: FormGroup;
   constructor(
-    private activeRoute: ActivatedRoute,
-    public dialogRef: MatDialogRef<UserDetailComponent>,
+    private fb: FormBuilder,
     private userService: UserService) {
+    // this.form = this.fb.group({
+    //   id: new FormControl(''),
+    //   firstName: new FormControl(''),
+    //   lastName: [null, new FormControl(Validators.maxLength(3))],
+    //   gender: [null, new FormControl()],
+    //   employeeDate: [null, new FormControl('')]
+    // });
   }
 
   ngOnInit(): void {
@@ -34,33 +37,27 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     // });
     // this.querySubscription = this.activeRoute.queryParams.subscribe(data => {
     //   this.user.query = JSON.stringify(data['key']);
-    // })
-
-    // debugger
-    // this.userService.openSubject.subscribe((data: boolean) => {
-    //   this.openDialog = data;
     // });
-    this.config = {
-      ...this.config,
-      maxDate: moment.from(moment(undefined).locale('fa').format('yyyy/mm/dd'), 'fa', 'yyyy/mm/dd'),
-      minDate: moment.from(moment(undefined).locale('fa').format('yyyy/mm/dd'), 'fa', 'yyyy/mm/dd')
-    };
   }
 
-  openDatePicker() {
-    debugger
-    this.datePicker.api.open();
-  }
+  // openDatePicker() {
+  //   this.datePicker.api.open();
+  // }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
+  // closeDialog() {
+  //   this.dialogRef.close();
+  // }
 
-  save() {
-    debugger
+  // save() {
+  //   debugger
+  //   this.form.setValue({
+  //     employeeDate: this.userDto.employeeDate
+  //   });
+  //   this.userService.add(this.form.value);
+  // }
 
-    this.userService.add(this.userDto);
-    this.closeDialog();
+  onSubmit(f){
+
   }
 
   ngOnDestroy(): void {

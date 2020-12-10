@@ -16,18 +16,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
   smallIconClass = '';
   showSideBar = true;
   layoutSubscription: Subscription;
-  acUrl;
-
-  cl;
-
+  acUrl:string;
   constructor(
     public menuService: MenuItemService,
     private layoutService: UserAreaLayoutService,
-    private router: Router,
-    private activeRoute: ActivatedRoute,
-    private cdr: ChangeDetectorRef) {
-      this.MenuItems = MENUITEM;
-    }
+    private router: Router) {
+    this.MenuItems = MENUITEM;
+  }
 
   ngOnInit(): void {
     this.changeMenu();
@@ -41,10 +36,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.acUrl = this.router.url;
     this.MenuItems.forEach(item => {
       item.active = false;
-      if (this.acUrl == item.path) {
-        item.active = true;
+      if (item.formSubActionsUrls) {
+        const hasEqualPath = item.formSubActionsUrls.some(el => this.acUrl === el);
+        hasEqualPath ? item.active = true : item.active = false;
       } else {
-        item.active = false
+        this.acUrl === item.path ? item.active = true : item.active = false;
       }
     })
   }

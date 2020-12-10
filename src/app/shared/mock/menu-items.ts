@@ -7,14 +7,15 @@ export const MENUITEM = [
     titleKey: 'مدیریت داشبورد',
     icon: 'dashboard',
     path: '/dashboard',
-    active: false
+    active: false,
   },
   {
     code: 2,
     titleKey: 'مدیریت کاربران',
     icon: 'group',
     path: '/users',
-    active: false
+    active: false,
+    formSubActionsUrls: ['/users/add']
   },
   {
     code: 3,

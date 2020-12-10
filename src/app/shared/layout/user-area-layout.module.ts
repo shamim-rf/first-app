@@ -1,3 +1,4 @@
+import { UserDetailComponent } from './../../pages/user-mng/user-detail/user-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItemService } from '../mock/menu-items';
@@ -15,6 +16,9 @@ import { ProductMngComponent } from './../../pages/product-mng/product-mng.compo
 export const routes: Routes = [
   {
     path: 'users', component: UserComponent,
+  },
+  {
+    path: 'users/:add', component: UserDetailComponent,
   },
   {
     path: 'role', component: RoleComponent,

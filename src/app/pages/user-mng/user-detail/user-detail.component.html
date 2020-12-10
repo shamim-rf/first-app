@@ -1,43 +1,14 @@
-<!-- <mat-card> -->
-<mat-card-content>
-  <form class="my-form" fxLayout="column wrap" fxLayoutAlign="start none">
-    <mat-form-field appearance="standard">
-      <mat-label>{{'user.firstName' | translate}}</mat-label>
-      <input name="firstName" matInput [(ngModel)]="userDto.firstName">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>{{'user.lastName' | translate}}</mat-label>
-      <input name="lastName" matInput [(ngModel)]="userDto.lastName">
-    </mat-form-field>
-    <br>
-    <mat-label class="example-margin">{{'user.gender' | translate}}</mat-label>
-    <section>
-      <mat-radio-group name="gender" [(ngModel)]="userDto.gender">
-        <mat-radio-button style="margin: 5px 10px;" value="Female">{{'user.female' | translate}}
-        </mat-radio-button>
-        <mat-radio-button style="margin: 5px 10px;" value="Male">{{'user.male' | translate}}
-        </mat-radio-button>
-      </mat-radio-group>
-    </section>
-    <br>
-    <mat-label>{{'user.employeeDate' | translate}}</mat-label>
-    <div>
-      <button mat-icon-button (click)="openDatePicker()">
-        <mat-icon>today</mat-icon>
-      </button>
-      <dp-date-picker #datePicker name="date" dir="rtl" mode="day" [config]="config" theme="dp-material"
-                      [(ngModel)]="userDto.employeeDate">
-      </dp-date-picker>
-    </div>
-    <br>
-    <mat-card-actions>
-      <button mat-raised-button style="margin-right: 10px;" (click)="closeDialog()">{{'general.cancel' | translate}}
-        <mat-icon>cancel</mat-icon>
-      </button>
-      <button mat-raised-button (click)="save()">{{'general.save' | translate}}
-        <mat-icon>save</mat-icon>
-      </button>
-    </mat-card-actions>
-  </form>
-</mat-card-content>
-<!-- </mat-card> -->
+<form (do)="onSubmit(f)" #f="ngForm">
+  <mat-vertical-stepper linear>
+    <mat-step>
+      <ng-template matStepLabel>{{'user.personalInfo' | translate}}</ng-template>
+      <app-user-personal-info></app-user-personal-info>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{'user.personalInfo' | translate}}</ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{'user.personalInfo' | translate}}</ng-template>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>

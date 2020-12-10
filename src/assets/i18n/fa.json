@@ -15,23 +15,27 @@
     "cancel": "انصراف",
     "conf-message": "آیا از انجام عملیات اطمینان دارید؟"
   },
-
   "dashboard": {
     "dashboardMng": "مدیریت داشبورد"
   },
-
   "user": {
-   "addUser": "درج کاربر",
-   "userMng": "مدیریت کاربران",
-   "firstName": ":نام",
-   "lastName": ":نام خانوادگی",
-   "employeeDate": ":تاریخ استخدام",
-   "gender": ":جنسیت",
-   "male": "مرد",
-   "female": "زن"
+    "addUser": "درج کاربر",
+    "userMng": "مدیریت کاربران",
+    "personalInfo": "اطلاعات شخصی",
+    "firstName": "نام:",
+    "lastName": "نام خانوادگی:",
+    "employeeDate": "تاریخ استخدام:",
+    "gender": "جنسیت:",
+    "male": "مرد",
+    "female": "زن",
+    "education-level": "سطح تحصیلات",
+    "cycle": "سیکل",
+    "diploma": "دیپلم",
+    "associate": "فوق دیپلم",
+    "bachelor": "لیسانس",
+    "MA": "فوق لیسانس",
+    "doctorate": "دکترا"
   },
-
-
   "validation": {
     "product": {},
     "users": {

@@ -5,6 +5,7 @@ export interface MenuItem {
   icon?: string;
   path: string;
   active: boolean;
+  formSubActionsUrls?: Array<string>;
 }
 
 export type MenuItems = MenuItem[];

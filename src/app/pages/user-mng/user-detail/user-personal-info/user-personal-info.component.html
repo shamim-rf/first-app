@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+  <div>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="30">
+        <input matInput formControlName="firstName" [placeholder]="'user.firstName' | translate">
+      </mat-form-field>
+      <div fxFlex="8"></div>
+      <mat-form-field fxFlex="30">
+        <input matInput formControlName="lastName" [placeholder]="'user.lastName' | translate">
+      </mat-form-field>
+      <div fxFlex="8"></div>
+      <div fxFlex="15">
+        <mat-label>{{'user.gender' | translate}}</mat-label>
+        <br>
+        <mat-radio-group formControlName="gender" fxLayout="row wrap" fxLayoutAlign="space-between center">
+          <mat-radio-button value="Male">{{'user.male' | translate}}
+          </mat-radio-button>
+          <mat-radio-button value="Female">{{'user.female' | translate}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <br>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="30">
+        <mat-label>{{'user.education-level' | translate}}</mat-label>
+        <mat-select name="education">
+          <!-- <mat-option value="Female">Female</mat-option>
+          <mat-option value="Male">Male</mat-option> -->
+          <mat-option *ngFor="let item of EducationItems" value="{{item.value}}">{{item.text | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div fxFlex="30">
+        <app-persian-date-picker [placeholder]="'user.employeeDate' | translate">
+        </app-persian-date-picker>
+      </div>
+    </div>
+    <div>
+    </div>
+    <br>
+    <!-- <mat-card-actions>
+      <button mat-raised-button style="margin-right: 10px;" (click)="closeDialog()">{{'general.cancel' | translate}}
+        <mat-icon>cancel</mat-icon>
+      </button>
+      <button mat-raised-button (click)="save()">{{'general.save' | translate}}
+        <mat-icon>save</mat-icon>
+      </button>
+    </mat-card-actions> -->
+  </div>

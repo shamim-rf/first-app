@@ -1,0 +1,34 @@
+<!-- <label class="yekan" [for]="name" *ngIf="label" [ngClass]="{'required' : required}">
+  {{label}}
+</label> -->
+<!-- <div *ngIf="fgName">
+  <div fxFlex.gt-lg="80" fxFlex.gt-md="80" fxFlex.gt-s="80" fxFlex.gt-xs="80" fxFlex="100">
+    <input matInput class="date-picker-input yekan" [mode]='mode' [disabled]="disabled" [placeholder]="placeholder"
+      [name]="name" (change)="dateValueChanged($event)" (selectedValueChange)="clearDateValue($event)"
+      (ngModelChange)="valueChange.emit(dateValue)" [dpDayPicker]="config" theme="dp-material"
+      attachTo=".persian-date-picker-container" [(ngModel)]="dateValue" rtlEnabled="true" />
+  </div>
+  <div fxFlex.gt-lg="20" fxFlex.gt-md="20" fxFlex.gt-s="20" fxFlex.gt-xs="20" fxFlex="100">
+    <button mat-button (click)="openDatePicker($event)" class="yekan" rtlEnabled="true" id="product" icon="event"
+      type="success">
+    </button>
+  </div>
+</div> -->
+<div class="containery" fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="!fgName">
+  <div fxFlex.gt-lg="45" fxFlex.gt-md="45" fxFlex.gt-s="45" fxFlex.gt-xs="45" fxFlex="50">
+    <mat-form-field class="example-full-width">
+      <!-- <mat-label *ngIf="label" [ngClass]="{'required' : required}">{{label}}</mat-label> -->
+      <input matInput class="date-picker-input yekan" [mode]='mode' #datePickerInput [placeholder]="placeholder"
+        [name]="name" (onChange)="dateValueChanged($event)" (ngModelChange)="valueChange.emit(dateValue)"
+        [dpDayPicker]="config" theme="dp-material" attachTo=".persian-date-picker-container" [(ngModel)]="dateValue"
+        rtlEnabled="true" />
+    </mat-form-field>
+  </div>
+  <div fxFlex.gt-lg="5" fxFlex.gt-md="5" fxFlex.gt-s="5" fxFlex.gt-xs="5" fxFlex="50">
+    <button  mat-icon-button (click)="openDatePicker($event)" class="yekan" rtlEnabled="true" id="product" icon="date"
+      type="success">
+      <mat-icon>today</mat-icon>
+    </button>
+  </div>
+</div>
+

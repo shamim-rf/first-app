@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
+import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ToggleBtnComponent } from './custom-feature/toggle-btn/toggle-btn.component';
+import { FormControlComponent } from './custom-feature/form-control/form-control.component';
 import { ConfirmationComponent } from './custom-feature/confirmation/confirmation.component';
-import { FormsModule } from '@angular/forms';
-import { DpDatePickerModule } from 'ng2-jalali-date-picker';
+import { PersianDatePickerComponent } from './custom-feature/persian-date-picker/persian-date-picker.component';
 
-
+const COMPONENTS = [ToggleBtnComponent, ConfirmationComponent, PersianDatePickerComponent , FormControlComponent]
 
 @NgModule({
-  declarations: [ToggleBtnComponent, ConfirmationComponent],
+  declarations: [COMPONENTS],
   imports: [
     CommonModule,
     MaterialModule,
@@ -22,9 +24,8 @@ import { DpDatePickerModule } from 'ng2-jalali-date-picker';
     FormsModule,
     DpDatePickerModule
   ],
-  exports:[
-    ToggleBtnComponent,
-    ConfirmationComponent,
+  exports: [
+    ...COMPONENTS,
     MaterialModule,
     FlexLayoutModule,
     NgxDatatableModule,

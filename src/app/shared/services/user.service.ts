@@ -5,7 +5,7 @@ import { UserDto } from '../types/dataTypes';
 
 @Injectable()
 export class UserService {
-  openSubject = new Subject();
+  subject = new Subject();
 
   dataMock: UserDto[] = [
     {
@@ -57,9 +57,9 @@ export class UserService {
     return userObj;
   }
 
-  add(newUser: UserDto): void {
-    debugger
-    this.dataMock.push(newUser);
+  add(newUser: UserDto) {
+    // this.dataMock.push(newUser);
+    this.subject.next(newUser);
   }
 
   update(id: number, user: UserDto) {
@@ -67,16 +67,14 @@ export class UserService {
     findUser = user;
   }
 
-  // changeStatus(id: number, status: boolean , dataMock): Observable<UserDto[]> {
-  //   debugger
-  //   const findUser = dataMock.find(item => { return item.id === id })
-  //   const obs = of(findUser);
-  //   return obs.pipe(map(item => item.status = !status));
-  // }
+  changeStatus(id: number, status: boolean , dataMock): Observable<boolean> {
+    const findUser = dataMock.find(item => { return item.id === id })
+    const obs = of(findUser);
+    return obs.pipe(map(item => item.status = !status));
+  }
 
-  // delete(id: number, dataMock): Observable<UserDto[]> {
-  //   const obs = from(dataMock);
-  //   return obs.pipe(map(x => x.
-  //     filter(item => item.id !== id)));
-  // }
+  delete(id: number, dataMock): Observable<UserDto[]> {
+    const obs = of(dataMock);
+    return obs.pipe(map(x => x.filter(item => item.id !== id)));
+  }
 }

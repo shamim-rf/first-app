@@ -80,15 +80,39 @@ dp-date-picker.dp-material .dp-picker-input {
   left: unset !important;
 }
 
-.mat-radio-button.mat-accent .mat-radio-inner-circle{
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
   background-color: $color-purple !important;
 }
 
-.mat-radio-outer-circle{
+.mat-radio-outer-circle {
   border-color: $color-sidebar-text !important;
 }
 
-.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab{
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
   background-color: $color-blue-purple !important;
   color: $color-purple !important;
+}
+/*mat-stepper*/
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: $color-white !important;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color: $color-light-purple !important;
+  margin-right: 5px !important;
+}
+
+.mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
+  color: $color-purple !important;
+}
+
+.text-danger {
+  color: $color-danger !important;
+  &:hover {
+    color: $color-danger !important;
+  }
 }

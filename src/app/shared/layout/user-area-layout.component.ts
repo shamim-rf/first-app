@@ -24,7 +24,6 @@ export class UserAreaLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // debugger
     this.firstLoadedPage();
     this.router.events.subscribe((u) => {
       for (const item of MENUITEM) {
@@ -60,9 +59,11 @@ export class UserAreaLayoutComponent implements OnInit {
   }
   firstLoadedPage() {
     const path = MENUITEM.find((ur) => {
-      return ur.path === this.router.url
+      return ur.path === this.router.url;
     });
-    return this.pageTitle = path.titleKey;
+    if (path) {
+      return this.pageTitle = path?.titleKey;
+    }
   }
 
   // @HostListener('window:resize', ['$event'])

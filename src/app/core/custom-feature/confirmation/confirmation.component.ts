@@ -32,7 +32,6 @@ closeDialog(){
 }
 
 acceptDialog(){
-  debugger
   this.data.accept();
   this.dialogRef.close();
 }

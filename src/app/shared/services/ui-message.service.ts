@@ -11,7 +11,6 @@ export class UiMessageService {
   ) { }
 
   showConfirm(titleKey?: string, textKey?: string, accept?: () => any, reject?: () => any) {
-    debugger
     this.confirm.emit({
       title: this.tr.instant(titleKey),
       text: this.tr.instant(textKey),
