@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './../core/core.module';
 import { UserComponent } from './user-mng/user.component';
@@ -25,8 +24,7 @@ import { UserPersonalInfoComponent } from './user-mng/user-detail/user-personal-
     CommonModule,
     ReactiveFormsModule,
     CoreModule,
-    RouterModule,
-    NgxSpinnerModule,
+    RouterModule
   ],
   providers: [UserService]
 })

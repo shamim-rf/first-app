@@ -9,29 +9,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { UserAreaLayoutModule } from './shared/layout/user-area-layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-// import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material.persian-date.adapter';
-import {
-  MAT_MOMENT_DATE_FORMATS,
-  MomentDateAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-} from '@angular/material-moment-adapter';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-export const PERSIAN_DATE_FORMATS = {
-  parse: {
-    dateInput: "jYYYY/jMM/jDD"
-  },
-  display: {
-    dateInput: "jYYYY/jMM/jDD",
-    monthYearLabel: "jYYYY jMMMM",
-    dateA11yLabel: "jYYYY/jMM/jDD",
-    monthYearA11yLabel: "jYYYY jMMMM"
-  }
-};
 
 // const data = require('../assets/i18n/dataTable.json');
 
@@ -44,6 +26,8 @@ export const PERSIAN_DATE_FORMATS = {
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule,
+    UserAreaLayoutModule,
+    MDBBootstrapModule.forRoot(),
     TranslateModule.forRoot({
       defaultLanguage: 'fa',
       loader: {
@@ -52,17 +36,8 @@ export const PERSIAN_DATE_FORMATS = {
         deps: [HttpClient]
       }
     }),
-    UserAreaLayoutModule,
   ],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fa-Fa'},
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-    },
-    {provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS},
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

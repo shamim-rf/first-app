@@ -17,9 +17,5 @@ export class ProductDto {
 
 }
 
-export interface GenderType {
-  value: string;
-  viewValue: string;
-}
 
 

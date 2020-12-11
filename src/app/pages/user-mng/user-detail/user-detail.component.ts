@@ -8,12 +8,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.scss']
+  styleUrls: ['./user-detail.component.scss'],
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
   @ViewChild('datePicker') datePicker: DatePickerComponent;
   userDto: UserDto = new UserDto();
   openDialog = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  isEditable = false;
+
   form: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -38,7 +42,14 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     // this.querySubscription = this.activeRoute.queryParams.subscribe(data => {
     //   this.user.query = JSON.stringify(data['key']);
     // });
+    this.firstFormGroup = this.fb.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.fb.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
+
 
   // openDatePicker() {
   //   this.datePicker.api.open();

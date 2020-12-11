@@ -16,3 +16,8 @@ export interface IConfMessage {
   accept?: () => any;
   reject?: () => any;
 }
+
+export interface IEnum {
+  text: string;
+  value: string;
+}

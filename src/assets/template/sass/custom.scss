@@ -26,7 +26,7 @@
 
 /* mat-input */
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: $theme-accent !important;
+  background-color:$color-blue-purple !important;
 }
 /*mat-icon*/
 .material-icons {
@@ -95,24 +95,66 @@ dp-date-picker.dp-material .dp-picker-input {
   background-color: $color-blue-purple !important;
   color: $color-purple !important;
 }
+
+/*mat-select*/
+.mat-form-field-type-mat-select .mat-form-field-label {
+  width: inherit !important;
+}
 /*mat-stepper*/
 .mat-stepper-horizontal,
 .mat-stepper-vertical {
   background-color: $color-white !important;
 }
 
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: $color-blue !important;
+}
+
+.mat-step-icon-content,
+.mat-step-icon .mat-icon {
+  top: 54% !important;
+}
+
+.mat-horizontal-stepper-header::before,
+.mat-horizontal-stepper-header::after,
+.mat-stepper-horizontal-line {
+  border-top-color: #e1e2e3 !important;
+}
+
 .mat-step-header .mat-step-label.mat-step-label-active {
-  color: $color-light-purple !important;
-  margin-right: 5px !important;
+  color:$color-blue-purple !important;
+  margin-right: 10px;
 }
 
-.mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
-  color: $color-purple !important;
+.mat-step-header .mat-step-label,
+.mat-step-header .mat-step-optional {
+  color: $theme-secondary !important;
 }
 
-.text-danger {
-  color: $color-danger !important;
-  &:hover {
-    color: $color-danger !important;
-  }
+// .mat-step-header .mat-step-icon {
+//   background-color: $theme-secondary !important ;
+//   margin-left: 8px;
+//   color: $color-white !important ;
+// }
+
+// .mat-step-header .mat-step-label.mat-step-label-active {
+//   color: $color-light-purple !important;
+//   margin-right: 5px !important;
+// }
+
+// .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
+//   color: $color-purple !important;
+// }
+
+// .text-danger {
+//   color: $color-danger !important;
+//   &:hover {
+//     color: $color-danger !important;
+//   }
+// }
+.dp-material > div:nth-child(2) {
+  top: -65px !important;
+  left: 0 !important;
 }
