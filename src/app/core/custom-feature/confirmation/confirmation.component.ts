@@ -1,4 +1,3 @@
-import { DialogData } from './../../../pages/dialog/dialog.component';
 import { IConfMessage } from './../../../shared/types/generalTypes';
 import { UiMessageService } from './../../../shared/services/ui-message.service';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -28,26 +27,13 @@ export class ConfirmationComponent implements OnInit {
     // });
   }
 closeDialog(){
+  this.data.reject();
   this.dialogRef.close();
 }
 
 acceptDialog(){
-  debugger
   this.data.accept();
   this.dialogRef.close();
 }
-  // accept() {
-  //   if (this.confDto && typeof this.confDto.accept === 'function') {
-  //     this.confDto.accept();
-  //   }
-  //   this.confDto = null;
-  // }
-
-  // reject() {
-  //   if (this.confDto && typeof this.confDto.reject === 'function') {
-  //     this.confDto.reject();
-  //   }
-  //   this.confDto = null;
-  // }
 
 }

@@ -1,4 +1,4 @@
-<button mat-mini-fab class="addBtn" [matTooltip]="'general.add' | translate" (click)="openDialog()">
+<button mat-mini-fab class="addBtn" [matTooltip]="'general.add' | translate" (click)="openForm()">
   <mat-icon>add</mat-icon>
 </button>
 <ngx-datatable #mydatatable class="material" [headerHeight]="50" [limit]="5" [columnMode]="ColumnMode.force"
@@ -52,7 +52,8 @@
   <ngx-datatable-column [name]="columnName[5]">
     <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
       <mat-slide-toggle [matTooltip]="row.status ? ('general.active' | translate) : ('general.inactive' | translate)"
-                        [(checked)]="row.status"></mat-slide-toggle>
+                        [(checked)]="row.status" (change)="changeStatus(row.id ,row.status)"
+                        ></mat-slide-toggle>
     </ng-template>
   </ngx-datatable-column>
   <ngx-datatable-column [name]="columnName[6]">

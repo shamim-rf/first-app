@@ -3,6 +3,7 @@ export class UserDto {
   firstName: string;
   lastName: string;
   employeeDate: string;
+  gender: string;
   picture: string;
   status: boolean;
 }
@@ -15,5 +16,6 @@ export class ProductDto {
   percent: number;
 
 }
+
 
 

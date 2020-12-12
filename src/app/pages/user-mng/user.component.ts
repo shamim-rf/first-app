@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class UserComponent implements OnInit {
   param = { key: '2' };
   editMode = 0;
-  gridData: UserDto[] = [];
+  gridData: any = [];
   editing = {};
   ColumnMode = ColumnMode;
   showDialog = false;
@@ -27,6 +29,8 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private tr: TranslateService,
+    private router: Router,
+    private activRoute: ActivatedRoute,
     private uiMsg: UiMessageService,
     public dialog: MatDialog) {
   }
@@ -34,7 +38,16 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe(data => {
       this.gridData = data;
     });
-    this.tr.instant('general.test')
+    this.tr.instant('general.test');
+    this.userService.subject.subscribe(data => {
+      debugger
+      this.gridData.push(data);
+    });
+  }
+
+  openForm() {
+    this.router.navigate(['add'] ,{relativeTo: this.activRoute});
+    // this.dialog.open(UserDetailComponent, { data: {} });
   }
 
   updateValue(event, cell, rowIndex) {
@@ -44,13 +57,32 @@ export class UserComponent implements OnInit {
     this.gridData = [...this.gridData];
   }
 
+  changeStatus(id: number, status: boolean) {
+    this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: status ? 'general.inactivation' : 'general.activation',
+        text: 'general.conf-message',
+        accept: () => {
+          // this.userService.changeStatus(id, status, this.gridData),
+        },
+        reject: () => {
+          // this.userService.changeStatus(id, !status, this.gridData)
+        }
+      }
+    });
+  }
+
+  s
+
   deleteUser(id) {
-        const dialogRef = this.dialog.open(ConfirmationComponent, {
-          data: {
-            title: 'general.operation',
-            text: 'general.conf-message',
-            accept: () => this.gridData = this.gridData.filter(item => item.id !== id),
-            // reject: () =>{}
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: 'general.delete',
+        text: 'general.conf-message',
+        accept: () => this.gridData = this.gridData.filter(item => item.id !== id),
+        reject: () => {
+          //  this.userService.delete(id , this.gridData
+        }
       }
     });
 
@@ -60,9 +92,6 @@ export class UserComponent implements OnInit {
     // })
   }
 
-  openDialog() {
-    this.dialog.open(UserDetailComponent);
-   }
 
 }
 

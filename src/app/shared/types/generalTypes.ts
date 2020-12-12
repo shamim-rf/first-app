@@ -5,6 +5,7 @@ export interface MenuItem {
   icon?: string;
   path: string;
   active: boolean;
+  formSubActionsUrls?: Array<string>;
 }
 
 export type MenuItems = MenuItem[];
@@ -14,4 +15,9 @@ export interface IConfMessage {
   text: string;
   accept?: () => any;
   reject?: () => any;
+}
+
+export interface IEnum {
+  text: string;
+  value: string;
 }

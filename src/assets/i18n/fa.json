@@ -2,29 +2,47 @@
   "total": "تعداد :",
   "general": {
     "test": "وحید{{key}}",
+    "next-step": "مرحله بعد",
     "active": "قعال",
     "inactive": "غیرفعال",
     "operation": "عملیات",
     "delete": "حذف",
+    "activation": "فعال سازی",
+    "inactivation": "غیر فعال سازی",
     "add": "درج",
     "Yes": "بلی",
     "No": "خیر",
+    "save": "ذخیره",
+    "cancel": "انصراف",
     "conf-message": "آیا از انجام عملیات اطمینان دارید؟"
   },
-
   "dashboard": {
     "dashboardMng": "مدیریت داشبورد"
   },
-
   "user": {
-   "addUser": "درج کاربر",
-   "userMng": "مدیریت کاربران",
-   "firstName": "نام",
-   "lastName": "نام خانوادگی",
-   "employeeDate": "تاریخ استخدام"
+    "addUser": "درج کاربر",
+    "userMng": "مدیریت کاربران",
+    "personalInfo": "اطلاعات شخصی",
+    "firstName": "نام:",
+    "lastName": "نام خانوادگی:",
+    "employeeDate": "تاریخ استخدام:",
+    "birth-date": "تاریخ تولد:",
+    "tel": "تلفن ثابت:",
+    "mobile": "تلفن همراه:",
+    "email": "ایمیل:",
+    "address": "آدرس:",
+    "gender": "جنسیت:",
+    "male": "مرد",
+    "female": "زن",
+    "nothing": "هیچ کدام",
+    "education-level": "سطح تحصیلات:",
+    "cycle": "سیکل",
+    "diploma": "دیپلم",
+    "associate": "فوق دیپلم",
+    "bachelor": "لیسانس",
+    "MA": "فوق لیسانس",
+    "doctorate": "دکترا"
   },
-
-
   "validation": {
     "product": {},
     "users": {

@@ -7,14 +7,15 @@ export const MENUITEM = [
     titleKey: 'مدیریت داشبورد',
     icon: 'dashboard',
     path: '/dashboard',
-    active: false
+    active: false,
   },
   {
     code: 2,
     titleKey: 'مدیریت کاربران',
     icon: 'group',
     path: '/users',
-    active: false
+    active: false,
+    formSubActionsUrls: ['/users/add']
   },
   {
     code: 3,
@@ -25,23 +26,23 @@ export const MENUITEM = [
   },
   {
     code: 4,
-    titleKey: 'مدیریت گزارشات',
-    icon: 'outbond',
-    path: '/pages/reposts',
+    titleKey: 'مدیریت نقش ها',
+    icon: 'contact_page',
+    path: '/role',
     active: false
   },
   {
     code: 5,
-    titleKey: 'آب و هوا',
-    icon: 'explore',
-    path: '/weather',
+    titleKey: 'مدیریت فعالیت ها',
+    icon: 'local_activity',
+    path: '/activity',
     active: false
   },
   {
     code: 6,
-    titleKey: 'گالری تصاویر',
-    icon: 'photo_size_select_actual',
-    path: '/pictures',
+    titleKey: 'مدیریت گزارشات',
+    icon: 'sticky_note_2',
+    path: '/pages/reposts',
     active: false
   },
 

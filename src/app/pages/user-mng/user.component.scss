@@ -1,65 +1,14 @@
 @import "../../../assets/template/sass/color";
-
-
-// .label-search{
-//   color: $color-purple;
-//   text-align: right;
-// }
-
-// .mat-form-field{
-//   text-align: inherit;
-// }
-// .mat-form-field-appearance-legacy .mat-form-field-underline{
-//  height: 2px;
-//  color: $color-purple;
-
-// }
-// .table {
-//   width: 90%;
-//   background-color: $color-blue-purple;
-//   text-align: center;
-// }
-// th.mat-header-cell {
-//   text-align: center;
-//   padding: 0 20px;
-// }
-// th.mat-header-cell,
-// td.mat-cell,
-// td.mat-footer-cell {
-//   padding: 0 30px;
-// }
-
-// .mat-cell,
-// .mat-footer-cell {
-//   color: #0b2869;
-//   font-weight: 400;
-// }
-
-// mat-row,
-// mat-header-row,
-// mat-footer-row,
-// th.mat-header-cell,
-// td.mat-cell,
-// td.mat-footer-cell {
-//   border-bottom-color: rgb(27 26 26 / 12%);
-// }
-
-// .mat-header-cell {
-//   color: rgb(2 2 2 / 70%);
-//   font-size: 14px;
-//   font-weight: 500;
-// }
-
 .editBtn{
   margin-left: 10px;
   .editIcon{
-    color: green;
+    color: $color-green ;
   }
 }
 
 .deleteBtn {
   .deleteIcon{
-    color: red;
+    color: $color-red;
   }
 
 }
@@ -67,13 +16,3 @@
 .addBtn{
   margin-bottom: 10px;
 }
-
-// .ngx-datatable.material .datatable-header .datatable-header-cell{
-//   text-align: center;
-//   font-size: 0.9rem
-// }
-
-// .mat-paginator{
-//   width: 90.8%;
-//   background: #364a78;
-// }

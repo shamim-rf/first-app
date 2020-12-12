@@ -13,7 +13,7 @@
 }
 /*toggle-btn mat*/
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-  background-color: $color-green-dark !important;
+  background-color: $color-green !important;
 }
 
 .mat-slide-toggle-bar {
@@ -26,9 +26,9 @@
 
 /* mat-input */
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: $theme-accent !important;
+  background-color:$color-blue-purple !important;
 }
-
+/*mat-icon*/
 .material-icons {
   font-size: 1.45rem !important;
 }
@@ -40,6 +40,12 @@
 
 .mat-mini-fab.mat-accent {
   background-color: #d2dade !important;
+}
+
+.mat-icon-button {
+  width: 10 !important;
+  height: 10 !important;
+  line-height: 0 !important;
 }
 
 /*mat-dialog*/
@@ -55,22 +61,100 @@
   color: $color-sidebar-text !important;
 }
 
-// .mat-form-field-ripple {
-//   color: $color-sidebar-text !important;
-// }
-
 .mat-form-field-appearance-standard .mat-form-field-underline {
   background-color: $color-sidebar-text !important;
 }
 
-.mat-dialog-container {
-  width: 30vw !important;
+/*ng2-date-picker*/
+dp-date-picker.dp-material .dp-picker-input {
+  border: 1px solid #607d8b !important;
+  border-radius: 4px;
 }
 
-// .editIcon{
-//   background-color: $color-green-dark!important;
+.mat-select-value {
+  color: $color-sidebar-text !important;
+}
+
+.dp-material dp-popup {
+  top: unset !important;
+  left: unset !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $color-purple !important;
+}
+
+.mat-radio-outer-circle {
+  border-color: $color-sidebar-text !important;
+}
+
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+  background-color: $color-blue-purple !important;
+  color: $color-purple !important;
+}
+
+/*mat-select*/
+.mat-form-field-type-mat-select .mat-form-field-label {
+  width: inherit !important;
+}
+/*mat-stepper*/
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: $color-white !important;
+}
+
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: $color-blue !important;
+}
+
+.mat-step-icon-content,
+.mat-step-icon .mat-icon {
+  top: 54% !important;
+}
+
+.mat-horizontal-stepper-header::before,
+.mat-horizontal-stepper-header::after,
+.mat-stepper-horizontal-line {
+  border-top-color: #e1e2e3 !important;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color:$color-blue-purple !important;
+  margin-right: 10px;
+}
+
+.mat-step-header .mat-step-label,
+.mat-step-header .mat-step-optional {
+  color: $theme-secondary !important;
+}
+
+// .mat-step-header .mat-step-icon {
+//   background-color: $theme-secondary !important ;
+//   margin-left: 8px;
+//   color: $color-white !important ;
 // }
 
-// .deleteIcon{
-//   background-color: $color-red!important;
+// .mat-step-header .mat-step-label.mat-step-label-active {
+//   color: $color-light-purple !important;
+//   margin-right: 5px !important;
 // }
+
+// .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
+//   color: $color-purple !important;
+// }
+
+// .text-danger {
+//   color: $color-danger !important;
+//   &:hover {
+//     color: $color-danger !important;
+//   }
+// }
+.dp-material > div:nth-child(2) {
+  top: -65px !important;
+  left: 0 !important;
+}
