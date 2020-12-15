@@ -21,7 +21,7 @@
       <input matInput class="date-picker-input yekan" [mode]='mode' #datePickerInput [placeholder]="placeholder"
         [name]="name" (onChange)="dateValueChanged($event)" (ngModelChange)="valueChange.emit(dateValue)"
         [dpDayPicker]="config" theme="dp-material" attachTo=".persian-date-picker-container" [(ngModel)]="dateValue"
-        rtlEnabled="true" />
+        rtlEnabled="true" [minDate]="'01/01/1399'" />
     </mat-form-field>
   </div>
   <div fxFlex.gt-lg="5" fxFlex.gt-md="5" fxFlex.gt-s="5" fxFlex.gt-xs="5" fxFlex="50">

@@ -2,6 +2,7 @@
   "total": "تعداد :",
   "general": {
     "test": "وحید{{key}}",
+    "defualt-text": "انتخاب کنید",
     "next-step": "مرحله بعد",
     "active": "قعال",
     "inactive": "غیرفعال",
@@ -9,6 +10,10 @@
     "delete": "حذف",
     "activation": "فعال سازی",
     "inactivation": "غیر فعال سازی",
+    "required": "الزامی",
+    "max": "حداکثر",
+    "min": "حداقل",
+    "character": "کارکتر",
     "add": "درج",
     "Yes": "بلی",
     "No": "خیر",

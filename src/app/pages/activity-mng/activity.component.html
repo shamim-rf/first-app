@@ -1,1 +1,16 @@
 <p>activity works!</p>
+
+<form #form="ngForm" (ngSubmit)="submit()">
+<div class="form-group">
+  <label for="">hello</label>
+  <!-- <input type="text" id="name" class="form-control" name="fname" fname required [ngModel]="hello">
+{{hello}} -->
+<input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" required #firstName="ngModel">
+  <p class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">
+    error
+  </p>
+  {{model.firstName}}
+</div>
+<br>
+<button type="submit"class="btn btn-primary">submit</button>
+</form>
