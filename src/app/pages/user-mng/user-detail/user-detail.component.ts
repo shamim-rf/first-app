@@ -2,7 +2,7 @@ import { UserDto } from '../../../shared/types/dataTypes';
 import { DatePickerComponent } from 'ng2-jalali-date-picker';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({

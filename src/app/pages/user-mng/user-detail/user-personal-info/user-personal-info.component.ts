@@ -1,3 +1,4 @@
+import { MobileValidatorDirective } from './../../../../core/custom-feature/validation/mobile-validator.directive';
 import { Component, Input, OnInit, SkipSelf } from '@angular/core';
 import { IEnum } from './../../../../shared/types/generalTypes';
 import { ErrorMessageType } from './../../../../shared/types/error-message';
@@ -39,7 +40,9 @@ export class UserPersonalInfoComponent implements OnInit {
       employeeDate: [null, new FormControl('')],
       birthDate: [null, new FormControl('')],
       address: this.fb.group({
-        tel: [null , [RxwebValidators.maxDate]]
+        // tel: [null , [RxwebValidators.maxDate]]
+        tel: [null , [RxwebValidators.maxDate]],
+        mobile: [null]
       })
     });
   }
