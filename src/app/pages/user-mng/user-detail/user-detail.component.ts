@@ -2,7 +2,7 @@ import { UserDto } from '../../../shared/types/dataTypes';
 import { DatePickerComponent } from 'ng2-jalali-date-picker';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -18,17 +18,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   secondFormGroup: FormGroup;
   isEditable = false;
 
-  form: FormGroup;
   constructor(
     private fb: FormBuilder,
     private userService: UserService) {
-    // this.form = this.fb.group({
-    //   id: new FormControl(''),
-    //   firstName: new FormControl(''),
-    //   lastName: [null, new FormControl(Validators.maxLength(3))],
-    //   gender: [null, new FormControl()],
-    //   employeeDate: [null, new FormControl('')]
-    // });
   }
 
   ngOnInit(): void {
@@ -42,14 +34,13 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     // this.querySubscription = this.activeRoute.queryParams.subscribe(data => {
     //   this.user.query = JSON.stringify(data['key']);
     // });
-    this.firstFormGroup = this.fb.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this.fb.group({
-      secondCtrl: ['', Validators.required]
-    });
+    // this.firstFormGroup = this.fb.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this.fb.group({
+    //   secondCtrl: ['', Validators.required]
+    // });
   }
-
 
   // openDatePicker() {
   //   this.datePicker.api.open();

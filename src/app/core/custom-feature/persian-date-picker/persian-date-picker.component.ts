@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { DatePickerDirective } from 'ng2-jalali-date-picker';
 import * as moment from 'jalali-moment';
 import { Subject } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
 
 // const uuid = require('uuid/v4');
 

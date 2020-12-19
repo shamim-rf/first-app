@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { UserAreaLayoutModule } from './shared/layout/user-area-layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -27,7 +27,6 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     CoreModule,
     UserAreaLayoutModule,
-    MDBBootstrapModule.forRoot(),
     TranslateModule.forRoot({
       defaultLanguage: 'fa',
       loader: {
@@ -36,6 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
