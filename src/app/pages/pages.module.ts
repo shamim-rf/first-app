@@ -11,6 +11,7 @@ import { ActivityComponent } from './activity-mng/activity.component';
 import { ProductMngComponent } from './product-mng/product-mng.component';
 import { UserDetailComponent } from './user-mng/user-detail/user-detail.component';
 import { UserPersonalInfoComponent } from './user-mng/user-detail/user-personal-info/user-personal-info.component';
+import { UserPictureComponent } from './user-mng/user-detail/user-picture/user-picture.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserPersonalInfoComponent } from './user-mng/user-detail/user-personal-
     ProductMngComponent,
     RoleComponent,
     ActivityComponent,
-    UserPersonalInfoComponent],
+    UserPersonalInfoComponent,
+    UserPictureComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

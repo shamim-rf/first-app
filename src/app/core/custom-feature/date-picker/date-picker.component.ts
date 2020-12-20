@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PersianDatePickerComponent } from '../persian-date-picker/persian-date-picker.component';
 
 @Component({
   selector: 'app-date-picker',
@@ -9,15 +9,35 @@ import { PersianDatePickerComponent } from '../persian-date-picker/persian-date-
 })
 export class DatePickerComponent implements OnInit {
   @Input() disabled = false;
+  @Input() placeholder: string;
   openCal = false;
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private ts: TranslateService,
+    private el: ElementRef) { }
 
   ngOnInit(): void {
+    this.placeholder ? this.placeholder = this.ts.instant(this.placeholder)
+      : this.placeholder = this.ts.instant('general.date');
+  }
+  _onToggleBtnClick(e) {
+    this.openCal = !this.openCal;
   }
 
-  _onToggleBtnClick(e){
-    this.openCal = !this.openCal;
-    const dialogRef = this.dialog.open(PersianDatePickerComponent)
+  @HostListener('document:click', ['$event'])
+  public documentClick(event: MouseEvent): void {
+    if (this.openCal) {
+      let element;
+      element = event.target;
+      while (element) {
+        if (element === this.el.nativeElement) {
+          debugger
+          return;
+        }
+        element = element.parentNode;
+      }
+      this.openCal = false;
+    }
   }
 
 }

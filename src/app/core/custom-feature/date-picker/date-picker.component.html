@@ -1,10 +1,20 @@
-<div style="width:100%">
-  <mat-form-field>
-    <input matInput [disabled]="disabled">
-  </mat-form-field>
-  <button mat-icon-button (click)="_onToggleBtnClick($event)">
-    <mat-icon>today</mat-icon>
-  </button>
+<div class="wrapper" fxLayout="row wrap" fxLayoutAlign="center center">
+  <!-- <div> -->
+  <div fxFlex.gt-lg="90" fxFlex.gt-md="90" fxFlex.gt-s="90" fxFlex.gt-xs="90" fxFlex="100">
+    <mat-form-field>
+      <input matInput [disabled]="disabled" [placeholder]="placeholder">
+    </mat-form-field>
+    <!-- </div> -->
+  </div>
+  <div fxFlex.gt-lg="10" fxFlex.gt-md="10" fxFlex.gt-s="10" fxFlex.gt-xs="10" fxFlex="100">
+    <button mat-icon-button (click)="_onToggleBtnClick($event)">
+      <mat-icon>today</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="modal-body" *ngIf="openCal">
+  <ngb-datepicker></ngb-datepicker>
 </div>
 <!-- <ng-template let-modal>
 

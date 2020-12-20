@@ -3,9 +3,15 @@ export class UserDto {
   firstName: string;
   lastName: string;
   employeeDate: string;
+  birthDate?: string;
+  educationLevel?: string;
   gender: string;
   picture: string;
   status: boolean;
+  telNumber?: string;
+  mobileNumber?: string;
+  email?: string;
+  address?: string;
 }
 
 export class ProductDto {

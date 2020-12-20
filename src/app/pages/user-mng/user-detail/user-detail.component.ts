@@ -2,7 +2,7 @@ import { UserDto } from '../../../shared/types/dataTypes';
 import { DatePickerComponent } from 'ng2-jalali-date-picker';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,9 +14,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   @ViewChild('datePicker') datePicker: DatePickerComponent;
   userDto: UserDto = new UserDto();
   openDialog = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isEditable = false;
+  registrationForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -24,41 +22,27 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.user.id = this.activeRoute.snapshot.params['id'];
-    // this.user.name = this.activeRoute.snapshot.params['name']
-    // this.userSubscription = this.activeRoute.params.subscribe((params: Params) => {
-
-    //   this.user.id = params['id'];
-    //   this.user.name = params['name'];
-    // });
-    // this.querySubscription = this.activeRoute.queryParams.subscribe(data => {
-    //   this.user.query = JSON.stringify(data['key']);
-    // });
-    // this.firstFormGroup = this.fb.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this.fb.group({
-    //   secondCtrl: ['', Validators.required]
-    // });
+    this.registrationForm = this.fb.group({
+      userPersonal: this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: [null, Validators.compose([Validators.required, Validators.minLength(3)])],
+        gender: [null],
+        educationLevel: [null],
+        employeeDate: [null],
+        birthDate: [null],
+        // tel: [null , [RxwebValidators.maxDate]]
+        telNumber: [null],
+        mobileNumber: [null],
+        email: [null, Validators.email],
+        address: [null],
+      }),
+      userPic: this.fb.group({
+        picture: [null]
+      })
+    });
   }
 
-  // openDatePicker() {
-  //   this.datePicker.api.open();
-  // }
-
-  // closeDialog() {
-  //   this.dialogRef.close();
-  // }
-
-  // save() {
-  //   debugger
-  //   this.form.setValue({
-  //     employeeDate: this.userDto.employeeDate
-  //   });
-  //   this.userService.add(this.form.value);
-  // }
-
-  onSubmit(f){
+  onSubmit(f) {
 
   }
 

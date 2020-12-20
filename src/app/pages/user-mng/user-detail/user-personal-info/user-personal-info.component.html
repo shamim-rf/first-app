@@ -1,61 +1,72 @@
-<form [formGroup]="form">
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start" fxLayoutGap.lt-md="0px">
-    <mat-form-field fxFlex="30">
-      <app-form-control>
-      <input matInput formControlName="firstName" [placeholder]="'user.firstName' | translate">
-      </app-form-control>
-    </mat-form-field>
-    <mat-form-field fxFlex="30">
-      <app-form-control>
-      <input matInput name="last" formControlName="lastName" [placeholder]="'user.lastName' | translate">
-      </app-form-control>
-    </mat-form-field>
-    <mat-form-field fxFlex="30">
-      <mat-label>{{'user.gender' | translate}}</mat-label>
-      <mat-select name="gender" formControlName="gender">
-        <mat-option *ngFor="let item of genderItems" [value]="item.value">{{item.text | translate}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <br>
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start" fxLayoutGap.lt-md="0px">
-    <mat-form-field fxFlex="30">
-      <mat-label>{{'user.education-level' | translate}}</mat-label>
-      <mat-select name="education" formControlName="educationLevel" >
-        <mat-option *ngFor="let item of EducationItems" [value]="item.value">{{item.text | translate}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div fxFlex="30">
-      <app-date-picker></app-date-picker>
-      <!-- <ngb-datepicker></ngb-datepicker> -->
-      <!-- <app-persian-date-picker id="birth" formControlName="birthDate" [placeholder]="'user.birth-date' | translate">
-      </app-persian-date-picker> -->
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="userPersonal">
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start"
+         fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="30">
+        <app-form-control>
+          <input matInput formControlName="firstName" placeholder="{{'user.firstName' | translate}}">
+        </app-form-control>
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <app-form-control>
+          <input matInput name="last" formControlName="lastName"
+                 placeholder="{{'user.lastName' | translate}}">
+        </app-form-control>
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <mat-label>{{'user.gender' | translate}}</mat-label>
+        <mat-select name="gender" formControlName="gender">
+          <mat-option *ngFor="let item of genderItems" [value]="item.value">{{item.text | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-    <div fxFlex="30">
-      <!-- <app-persian-date-picker id="employee" formControlName="employeeDate" [placeholder]="'user.employeeDate' | translate">
+    <br>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start"
+         fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="30">
+        <mat-label>{{'user.education-level' | translate}}</mat-label>
+        <mat-select name="education" formControlName="educationLevel">
+          <mat-option *ngFor="let item of EducationItems" [value]="item.value">{{item.text | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div fxFlex="30">
+        <app-date-picker placeholder="user.birth-date"></app-date-picker>
+        <!-- <ngb-datepicker></ngb-datepicker> -->
+        <!-- <app-persian-date-picker id="birth" formControlName="birthDate" [placeholder]="'user.birth-date' | translate">
       </app-persian-date-picker> -->
+      </div>
+      <div fxFlex="30">
+        <app-date-picker [placeholder]="'user.employeeDate'"></app-date-picker>
+        <!-- <app-persian-date-picker id="employee" formControlName="employeeDate" [placeholder]="'user.employeeDate' | translate">
+      </app-persian-date-picker> -->
+      </div>
     </div>
-  </div>
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start" fxLayoutGap.lt-md="0px">
-    <mat-form-field fxFlex="30">
-      <input matInput [placeholder]="'user.tel' | translate">
-    </mat-form-field>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start"
+         fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="30">
+        <input matInput formControlName="telNumber" [placeholder]="'user.tel' | translate">
+      </mat-form-field>
 
-    <mat-form-field fxFlex="30">
-      <input matInput [placeholder]="'user.mobile' | translate">
-    </mat-form-field>
-    <mat-form-field fxFlex="30">
-      <input matInput [placeholder]="'user.email' | translate">
-    </mat-form-field>
-    <div>
+      <mat-form-field fxFlex="30">
+        <input matInput formControlName="mobileNumber" [placeholder]="'user.mobile' | translate">
+      </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input matInput formControlName="email" [placeholder]="'user.email' | translate">
+      </mat-form-field>
+      <div>
+      </div>
     </div>
-  </div>
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start" fxLayoutGap.lt-md="0px">
+    <!-- <div formGroup="addressInfo" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start" fxLayoutGap.lt-md="0px">
     <mat-form-field fxFlex="90">
-      <textarea matInput [placeholder]="'user.address' | translate"></textarea>
+      <textarea matInput formControlName="address" [placeholder]="'user.address' | translate"></textarea>
     </mat-form-field>
+  </div> -->
+    <br>
+    <button type="submit" mat-raised-button matStepperNext
+            [disabled]="!regForm.valid">{{'general.next-step' | translate}}
+      <mat-icon>subdirectory_arrow_left</mat-icon>
+    </button>
   </div>
-  <br>
 </form>

@@ -46,7 +46,8 @@
     "associate": "فوق دیپلم",
     "bachelor": "لیسانس",
     "MA": "فوق لیسانس",
-    "doctorate": "دکترا"
+    "doctorate": "دکترا",
+    "loadPic": "بارگذاری تصویر"
   },
   "validation": {
     "product": {},
