@@ -46,16 +46,16 @@ export class UserComponent implements OnInit {
   }
 
   openForm() {
-    this.router.navigate(['add'] ,{relativeTo: this.activRoute});
+    this.router.navigate(['add'], { relativeTo: this.activRoute });
     // this.dialog.open(UserDetailComponent, { data: {} });
   }
 
-  updateValue(event, cell, rowIndex) {
-    this.editing[rowIndex + '-' + cell] = false;
-    this.editMode = Object.keys(this.editing).length;
-    this.gridData[rowIndex][cell] = event.target.value;
-    this.gridData = [...this.gridData];
-  }
+  // updateValue(event, cell, rowIndex) {
+  //   this.editing[rowIndex + '-' + cell] = false;
+  //   this.editMode = Object.keys(this.editing).length;
+  //   this.gridData[rowIndex][cell] = event.target.value;
+  //   this.gridData = [...this.gridData];
+  // }
 
   changeStatus(id: number, status: boolean) {
     this.dialog.open(ConfirmationComponent, {
@@ -72,24 +72,24 @@ export class UserComponent implements OnInit {
     });
   }
 
-  s
+  editUSer(id: number) {
+    debugger
+    this.router.navigate(['edit/' + id], { relativeTo: this.activRoute });
+  }
 
-  deleteUser(id) {
+  deleteUser(id: number) {
+    debugger
     const dialogRef = this.dialog.open(ConfirmationComponent, {
       data: {
         title: 'general.delete',
         text: 'general.conf-message',
-        accept: () => this.gridData = this.gridData.filter(item => item.id !== id),
+        accept: () => this.userService.delete(id, this.gridData).subscribe(data => {
+          this.gridData = data;
+        }),
         reject: () => {
-          //  this.userService.delete(id , this.gridData
         }
       }
     });
-
-    // this.userService.delete(id,this.gridData).subscribe(data => {
-    //   this.gridData = [];
-    //   this.gridData.push(data);
-    // })
   }
 
 

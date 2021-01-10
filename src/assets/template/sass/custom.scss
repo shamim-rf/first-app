@@ -94,12 +94,12 @@ dp-date-picker.dp-material .dp-picker-input {
   border-color: $color-sidebar-text !important;
 }
 
-.mat-flat-button,
-.mat-raised-button,
-.mat-fab,
-.mat-mini-fab {
-  background-color: $color-blue-purple !important;
+.btn-submit {
+  background-color: $color-green-light !important;
   color: $color-purple !important;
+}
+.btn-cancel{
+  background-color:$color-sidebar-text;
 }
 
 /*mat-select*/
@@ -111,12 +111,6 @@ dp-date-picker.dp-material .dp-picker-input {
 .mat-stepper-horizontal,
 .mat-stepper-vertical {
   background-color: $color-white !important;
-}
-
-.mat-step-header .mat-step-icon-selected,
-.mat-step-header .mat-step-icon-state-done,
-.mat-step-header .mat-step-icon-state-edit {
-  background-color: $color-blue !important;
 }
 
 .mat-step-icon-content,
@@ -132,35 +126,20 @@ dp-date-picker.dp-material .dp-picker-input {
 
 .mat-step-header .mat-step-label.mat-step-label-active {
   color: $color-blue-purple !important;
-  margin-right: 10px;
 }
 
-.mat-step-header .mat-step-label,
-.mat-step-header .mat-step-optional {
+.mat-step-label, .mat-step-optional {
   color: $theme-secondary !important;
 }
+ .mat-step-icon{
+  margin-left: 7px;
+  background-color: $theme-secondary !important ;
+}
+ .mat-step-icon-selected{
+  margin-left: 7px;
+  background-color: $color-blue !important ;
+}
 
-// .mat-step-header .mat-step-icon {
-//   background-color: $theme-secondary !important ;
-//   margin-left: 8px;
-//   color: $color-white !important ;
-// }
-
-// .mat-step-header .mat-step-label.mat-step-label-active {
-//   color: $color-light-purple !important;
-//   margin-right: 5px !important;
-// }
-
-// .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
-//   color: $color-purple !important;
-// }
-
-// .text-danger {
-//   color: $color-danger !important;
-//   &:hover {
-//     color: $color-danger !important;
-//   }
-// }
 .dp-material > div:nth-child(2) {
   top: -65px !important;
   left: 0 !important;
@@ -186,4 +165,8 @@ dp-date-picker.dp-material .dp-picker-input {
 .mat-select-panel .mat-optgroup-label,
 .mat-select-panel .mat-option {
   text-align: right !important;
+}
+
+.forbidden{
+  cursor: not-allowed !important;
 }

@@ -1,17 +1,18 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { IEnum } from './../../../../shared/types/generalTypes';
-import { ErrorMessageType } from './../../../../shared/types/error-message';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { UserDto } from 'src/app/shared/types/dataTypes';
+import { IEnum } from './../../../../shared/types/generalTypes';
+import { UserService } from './../../../../shared/services/user.service';
 @Component({
   selector: 'app-user-personal-info',
   templateUrl: './user-personal-info.component.html',
-  styleUrls: ['./user-personal-info.component.scss'],
+  styles:[`
+  .btn-submit{ margin-left: 8px}
+  `]
 })
 export class UserPersonalInfoComponent implements OnInit {
   @Input() regForm: FormGroup;
-  userDto: UserDto = new UserDto();
+  @Input() userDto: UserDto = new UserDto();
   EducationItems: IEnum[] = [
     { text: 'general.defualt-text', value: '' },
     { text: 'user.cycle', value: 'C' },
@@ -27,24 +28,19 @@ export class UserPersonalInfoComponent implements OnInit {
     { text: 'user.female', value: 'Female' },
     { text: 'user.nothing', value: 'Nothing' },
   ];
-  err: ErrorMessageType = new ErrorMessageType();
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
   }
 
   ngOnInit(): void {
-
+    if(this.userDto){
+      this.regForm.patchValue(this.userDto);
+    }
   }
 
   onSubmit() {
-    debugger
-    // this.userDto.firstName = this.form.value.firstName;
-    // this.userDto.lastName = this.form.value.lastName;
-    // this.userDto.gender = this.form.value.gender;
-    // this.userDto.educationLevel = this.form.value.educationLevel;
-    // this.userDto.telNumber = this.form.value.addressInfo.tel;
-    // this.userDto.mobileNumber = this.form.value.addressInfo.mobileNumber;
-    // this.userDto.email = this.form.value.addressInfo.email;
-    // this.userDto.address = this.form.value.addressInfo.address;
+    this.userDto = this.regForm.value;
+    this.userService.add(this.userDto);
+    // this.userService.saveUser({title: 1243}).subscribe();
   }
 
 }

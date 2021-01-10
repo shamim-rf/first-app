@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
-import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToggleBtnComponent } from './custom-feature/toggle-btn/toggle-btn.component';
@@ -30,7 +29,6 @@ const COMPONENTS = [
     NgxDatatableModule,
     TranslateModule,
     FormsModule,
-    DpDatePickerModule,
     NgbDatepickerModule
   ],
   exports: [
@@ -40,7 +38,6 @@ const COMPONENTS = [
     NgxDatatableModule,
     TranslateModule,
     FormsModule,
-    DpDatePickerModule,
   ]
 })
 export class CoreModule { }

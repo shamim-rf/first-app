@@ -1,8 +1,9 @@
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { UserDto } from '../../../shared/types/dataTypes';
-import { DatePickerComponent } from 'ng2-jalali-date-picker';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -11,14 +12,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-detail.component.scss'],
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
-  @ViewChild('datePicker') datePicker: DatePickerComponent;
   userDto: UserDto = new UserDto();
   openDialog = false;
+  id: number;
   registrationForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService) {
+    private userService: UserService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -40,10 +42,21 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         picture: [null]
       })
     });
+
+    this.route.paramMap.pipe(switchMap((params: ParamMap) => {
+      this.id = +params.get('id');
+      return this.userService.getUser(this.id);
+    })).subscribe(data => {
+      this.userDto = data[0];
+    });
   }
 
   onSubmit(f) {
 
+  }
+
+  test(element) {
+    element
   }
 
   ngOnDestroy(): void {
