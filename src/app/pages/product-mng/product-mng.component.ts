@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ProductMngService } from 'src/app/shared/services/product.service';
 import { ProductDto } from '../../shared/types/dataTypes';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-mng',
@@ -23,7 +24,9 @@ export class ProductMngComponent implements OnInit, AfterViewInit {
 
   constructor(
     private productService: ProductMngService,
-    private service: DataService
+    private service: DataService,
+    private route: Router,
+    private acRoute:ActivatedRoute
   ) {
 
   }
@@ -44,5 +47,7 @@ export class ProductMngComponent implements OnInit, AfterViewInit {
     this.gridData = [...this.gridData];
     console.log('UPDATED!', this.gridData[rowIndex][cell]);
   }
-
+  onAddProduct() {
+    this.route.navigate(['add'],{relativeTo:this.acRoute});
+  }
 }

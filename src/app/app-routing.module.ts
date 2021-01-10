@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserAreaLayoutComponent } from './shared/layout/user-area-layout.component';
+import { WrapperComponent } from './shared/layout/wrapper/wrapper.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserAreaLayoutComponent,
+    component: WrapperComponent,
     children: [
       {
         path: '',
@@ -14,7 +14,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren:
-          () => import('./shared/layout/user-area-layout.module').then(m => m.UserAreaLayoutModule)
+          () => import('./shared/layout/wrapper/wrapper.module').then(m => m.WrapperModule)
       },
       {
         path: 'dashboard',

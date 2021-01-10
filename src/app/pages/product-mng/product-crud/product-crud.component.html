@@ -1,0 +1,28 @@
+<div class="example-container">
+    <form class="product-add-form" [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field>
+            <mat-label>نام</mat-label>
+            <input matInput #name placeholder="نام" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>قیمت</mat-label>
+            <input matInput formControlName="price" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>موجودی</mat-label>
+            <input matInput type="number" formControlName="inventory" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>تخفیف</mat-label>
+            <input matInput formControlName="discount" />
+        </mat-form-field>
+        <!-- <input class="ng-hide" id="input-file-id" multiple type="file" />
+        <div class="submit-btn">
+            <button mat-flat-button color="green">ثبت</button>
+        </div> -->
+
+        <app-file-upload></app-file-upload>
+
+    </form>
+</div>
