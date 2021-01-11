@@ -17,8 +17,10 @@
     "add": "درج",
     "Yes": "بلی",
     "No": "خیر",
-    "save": "ذخیره",
+    "today": "امروز",
     "cancel": "انصراف",
+    "confirmSave": "تائید و ثبت اطلاعات",
+    "save": "ذخیره",
     "conf-message": "آیا از انجام عملیات اطمینان دارید؟"
   },
   "dashboard": {
@@ -46,7 +48,8 @@
     "associate": "فوق دیپلم",
     "bachelor": "لیسانس",
     "MA": "فوق لیسانس",
-    "doctorate": "دکترا"
+    "doctorate": "دکترا",
+    "loadPic": "بارگذاری تصویر"
   },
   "validation": {
     "product": {},

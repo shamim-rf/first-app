@@ -1,17 +1,18 @@
-import { MobileValidatorDirective } from './../../../../core/custom-feature/validation/mobile-validator.directive';
-import { Component, Input, OnInit, SkipSelf } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserDto } from 'src/app/shared/types/dataTypes';
 import { IEnum } from './../../../../shared/types/generalTypes';
-import { ErrorMessageType } from './../../../../shared/types/error-message';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { UserService } from './../../../../shared/services/user.service';
 @Component({
   selector: 'app-user-personal-info',
   templateUrl: './user-personal-info.component.html',
-  styleUrls: ['./user-personal-info.component.scss'],
+  styles:[`
+  .btn-submit{ margin-left: 8px}
+  `]
 })
 export class UserPersonalInfoComponent implements OnInit {
-  @Input() modelGroupName: string;
-  form: FormGroup;
+  @Input() regForm: FormGroup;
+  @Input() userDto: UserDto = new UserDto();
   EducationItems: IEnum[] = [
     { text: 'general.defualt-text', value: '' },
     { text: 'user.cycle', value: 'C' },
@@ -27,29 +28,19 @@ export class UserPersonalInfoComponent implements OnInit {
     { text: 'user.female', value: 'Female' },
     { text: 'user.nothing', value: 'Nothing' },
   ];
-  err: ErrorMessageType = new ErrorMessageType();
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: [null, Validators.compose([Validators.required, Validators.minLength(3)])],
-      gender: [null],
-      educationLevel: [null],
-      employeeDate: [null, new FormControl('')],
-      birthDate: [null, new FormControl('')],
-      address: this.fb.group({
-        // tel: [null , [RxwebValidators.maxDate]]
-        tel: [null , [RxwebValidators.maxDate]],
-        mobile: [null]
-      })
-    });
+    if(this.userDto){
+      this.regForm.patchValue(this.userDto);
+    }
   }
 
-  // public errorHandling = (control: string, error: string) => {
-
-  //   return this.form.controls[control].hasError(error);
-  // }
+  onSubmit() {
+    this.userDto = this.regForm.value;
+    this.userService.add(this.userDto);
+    // this.userService.saveUser({title: 1243}).subscribe();
+  }
 
 }

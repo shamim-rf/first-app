@@ -22,7 +22,8 @@ export const MENUITEM = [
     titleKey: 'مدیریت محصولات',
     icon: 'card_giftcard',
     path: '/products',
-    active: false
+    active: false,
+    formSubActionsUrls: ['products/add']
   },
   {
     code: 4,
@@ -48,7 +49,9 @@ export const MENUITEM = [
 
 ] as MenuItems;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MenuItemService {
   getMenuitem(): MenuItems {
     return MENUITEM;

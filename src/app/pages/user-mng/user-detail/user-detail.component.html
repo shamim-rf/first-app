@@ -13,28 +13,28 @@
   </mat-horizontal-stepper>
 </form> -->
 <mat-horizontal-stepper linear #stepper>
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate>
-  <mat-step>
+  <form [formGroup]="registrationForm" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around start"
+    fxLayoutGap.lt-md="0px">
+    <mat-step formGroupName="userPersonal" [stepControl]="registrationForm.get('userPersonal')"
+      >
       <ng-template matStepLabel>{{'user.personalInfo' | translate}}</ng-template>
-      <app-user-personal-info></app-user-personal-info>
-      <button mat-raised-button matStepperNext>{{'general.next-step' | translate}}
-        <mat-icon>subdirectory_arrow_left</mat-icon>
-      </button>
-  </mat-step>
-  <mat-step>
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
+      <app-user-personal-info [regForm]="registrationForm" [userDto]="userDto"></app-user-personal-info>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{'user.loadPic' | translate}}</ng-template>
+      <app-user-picture></app-user-picture>
+      <!-- <mat-form-field>
         <mat-label>Address</mat-label>
         <input matInput placeholder="Ex. 1 Main St, New York, NY"
                required>
-      </mat-form-field>
+      </mat-form-field> -->
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel>{{'general.confirmSave' | translate}}</ng-template>
       <p>You are now done.</p>
       <div>
         <button mat-button matStepperPrevious>Back</button>

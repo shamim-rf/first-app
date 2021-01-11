@@ -1,0 +1,9 @@
+.example-container .mat-form-field+.mat-form-field {
+    margin: 0px 8px;
+}
+
+.product-add-form {
+    mat-form-field {
+        width: 30%;
+    }
+}

@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+}
+
+.modal-datepicker {
+  position: absolute;
+  z-index: 9;
+  // top: 305px;
+  // left: 300px;
+
+  .datepicker {
+    background-color: #fdfdfd;
+  }
+}
+
+.date-picker-footer{
+  text-align: center;
+}

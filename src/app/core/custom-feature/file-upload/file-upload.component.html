@@ -1,0 +1,5 @@
+<div class="file-upload-wrapper">
+    <input readonly (click)="onInputClick(realFileInput)" />
+    <button (click)="openDialog(realFileInput)"> انتخاب فایل</button>
+</div>
+<input type="file" #realFileInput class="disp-none" (change)="onFileChanges($event)" />

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -13,16 +13,18 @@ import { ConfirmationComponent } from './custom-feature/confirmation/confirmatio
 import { PersianDatePickerComponent } from './custom-feature/persian-date-picker/persian-date-picker.component';
 import { MobileValidatorDirective } from './custom-feature/validation/mobile-validator.directive';
 import { DatePickerComponent } from './custom-feature/date-picker/date-picker.component';
+import { FileUploadComponent } from './custom-feature/file-upload/file-upload.component';
 
 const COMPONENTS = [
   ToggleBtnComponent,
   ConfirmationComponent,
   PersianDatePickerComponent,
   FormControlComponent,
-  DatePickerComponent];
+  DatePickerComponent,
+  FileUploadComponent];
 
 @NgModule({
-  declarations: [COMPONENTS, MobileValidatorDirective, DatePickerComponent],
+  declarations: [COMPONENTS, MobileValidatorDirective, DatePickerComponent, FileUploadComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -31,7 +33,8 @@ const COMPONENTS = [
     TranslateModule,
     FormsModule,
     DpDatePickerModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    ReactiveFormsModule
   ],
   exports: [
     ...COMPONENTS,
@@ -41,6 +44,7 @@ const COMPONENTS = [
     TranslateModule,
     FormsModule,
     DpDatePickerModule,
+    ReactiveFormsModule
   ]
 })
 export class CoreModule { }

@@ -1,11 +1,27 @@
-<div style="width:100%">
-  <mat-form-field>
-    <input matInput [disabled]="disabled">
-  </mat-form-field>
-  <button mat-icon-button (click)="_onToggleBtnClick($event)">
-    <mat-icon>today</mat-icon>
-  </button>
+<div class="wrapper" fxLayout="row wrap" fxLayoutAlign="center center">
+  <!-- <div> -->
+  <div fxFlex.gt-lg="90" fxFlex.gt-md="90" fxFlex.gt-s="90" fxFlex.gt-xs="90" fxFlex="100">
+    <mat-form-field>
+      <input #inputRef matInput [disabled]="disabled" [placeholder]="placeholder | translate" [(ngModel)]="_text"
+        (focus)="_onInputFocus()">
+    </mat-form-field>
+    <!-- </div> -->
+  </div>
+  <div fxFlex.gt-lg="10" fxFlex.gt-md="10" fxFlex.gt-s="10" fxFlex.gt-xs="10" fxFlex="100">
+    <button type="button" mat-icon-button (click)="_onToggleBtnClick($event)">
+      <mat-icon>today</mat-icon>
+    </button>
+  </div>
 </div>
-<!-- <ng-template let-modal>
 
-</ng-template> -->
+<div class="modal-datepicker" *ngIf="openCal">
+  <ngb-datepicker class="datepicker" [firstDayOfWeek]="6" (dateSelect)="_onDateSelect($event)"
+    [(ngModel)]="datePickerValue" [footerTemplate]="footer"></ngb-datepicker>
+  <ng-template #footer>
+    <div class="date-picker-footer">
+      <button mat-raised-button type="button" (click)="_onTodayClick()">{{'general.today' | translate}}
+        <mat-icon>today</mat-icon>
+      </button>
+    </div>
+  </ng-template>
+</div>

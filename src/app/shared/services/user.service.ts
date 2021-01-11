@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { from, Observable, of, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { UserDto } from '../types/dataTypes';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class UserService {
@@ -46,15 +47,17 @@ export class UserService {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<UserDto[]> {
     return of(this.dataMock);
   }
 
-  getUser(id: number): UserDto {
-    const userObj = this.dataMock.find(user => user.id === id);
-    return userObj;
+  getUser(id: number) {
+    const obs = of(this.dataMock);
+    return obs.pipe(map(x => x.filter(user => user.id === id)));
+    // const userObj = this.dataMock.find(user => user.id === id);
+    // return userObj;
   }
 
   add(newUser: UserDto) {
@@ -62,8 +65,8 @@ export class UserService {
     this.subject.next(newUser);
   }
 
-  update(id: number, user: UserDto) {
-    let findUser = this.dataMock.find(item => { return item.id === id })
+  update(user: UserDto) {
+    let findUser = this.dataMock.find(item => { return item.id === user.id })
     findUser = user;
   }
 
@@ -76,5 +79,9 @@ export class UserService {
   delete(id: number, dataMock): Observable<UserDto[]> {
     const obs = of(dataMock);
     return obs.pipe(map(x => x.filter(item => item.id !== id)));
+  }
+
+  saveUser(user: any): any{
+    return this.http.post('/add', user);
   }
 }
